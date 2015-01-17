@@ -1,0 +1,17 @@
+<h1>Chapter <%= @chapter.number %>: <%= @chapter.name %></h1>
+ 
+ <% if (@chapter.sections != nil) %>
+  
+  <% @chapter.sections.each do |section| %>
+     <h3>&nbsp&nbsp  <a href="/sections/<%= section.id %>">Section <%= section.number %></a> &nbsp<%= section.name%></h3>
+      
+      <% if (section.lessons != nil) %>
+         <% section.lessons.each do |lesson| %>
+           <h4> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="/lessons/<%= lesson.id %>/">Lesson <%= lesson.number %>:</a> &nbsp<%= lesson.name%></h4>
+         <% end %>
+       <% end %>
+    <% end %>
+ <% end %> 
+</br>
+ <h3><a href="/chapters/<%= @chapter.id %>/sections/new">Add a Section</a></h3>
+

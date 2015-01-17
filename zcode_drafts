@@ -1,0 +1,8 @@
+NOTE: To add a preset listing to an input form, set the value.  For ex:
+    <input id="section_chapter_id" name="section[chapter_id]" type="integer" value="<%= @chapter.id %>">
+--will display the chapter id of the section in the field.
+
+
+
+
+

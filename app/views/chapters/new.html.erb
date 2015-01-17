@@ -1,0 +1,18 @@
+<h1>Create a Chapter</h1>
+
+  <% if @chapter.errors.any? %>
+    <h3>Please fix these errors:</h3>
+    <ul>
+      <% @chapter.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+<form action="/chapters" method="post">
+  <label for="chapter_number">Number</label>  
+  <input id="chapter_number" name="chapter[number]" type="integer" value="<%= @chapter.number %>">
+  <label for="chapter_name">Name</label>  
+  <input id="chapter_name" name="chapter[name]" type="string" value="<%= @chapter.name %>">
+  <button>Create Chapter</button>
+</form>

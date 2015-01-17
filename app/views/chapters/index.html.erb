@@ -1,0 +1,27 @@
+<h1>The Teaching Site!</h1>
+
+<h2> Use this site to set up an online course. Create chapters, sections within chapters, and lessons. </h2>
+
+<h2> Your class: </h2>
+<ul>
+
+  <% @chapters.each do |chapter| %>
+  <h2>&nbsp&nbsp  <a href="/chapters/<%= chapter.id %>">Chapter <%= chapter.number %>: <%= chapter.name %></a></h2>
+
+    <% if chapter.sections != nil %>
+	  <% chapter.sections.each do |section| %>
+	     <h3>&nbsp&nbsp  <a href="/sections/<%= section.id %>">Section <%= section.number %></a> &nbsp<%= section.name%></h3>
+	      
+	      <% if (section.lessons != nil) %>
+	         <% section.lessons.each do |lesson| %>
+	           <h4> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="/lessons/<%= lesson.id %>/">Lesson <%= lesson.number %>:</a> &nbsp<%= lesson.name%></h4>
+	         <% end %>
+	       <% end %>
+	    <% end %>
+	 <% end %>
+	<% end %>
+</ul>
+
+<a href="/chapters/new">Create a new Chapter</a>
+<a href="/sections/new">Add a Section</a>
+<a href="/lessons/new">Add a Lesson</a>

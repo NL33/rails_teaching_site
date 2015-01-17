@@ -1,1 +1,1 @@
-# rails_teaching_site
+Practice app built with Rails. Usrs can create lessons, sections, and chapters. (Includes a few different routes to create lessons and sections, and ability to select from dropdown options when placing lessons in sections and sections in chapters).

@@ -1,0 +1,17 @@
+<h2>&nbsp&nbsp&nbspLesson <%= @lesson.number %>: <%= @lesson.name %></h2>
+
+<p>&nbsp&nbsp&nbsp&nbsp<%= @lesson.text %></p>
+
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+<h3><a href="/lessons/<%= @lesson.previous_lesson_link %>/">Previous Lesson in Section</a></h3>
+<h3><a href="/lessons/<%= @lesson.next_lesson_link %>/">Next Lesson in Section</a></h3>
+</br>
+</br>
+
+<h3><a href="/lessons/<%= @lesson.id %>/edit">Edit Lesson</h3>
+<h3><a href="/chapters">Back to Table of Contents</a></h3>

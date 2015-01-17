@@ -1,0 +1,23 @@
+<h1>Add a Lesson to Section <%= @section.number %> of Chapter <%= @section.chapter.number %>: <%= @section.chapter.name%> </h1>
+
+<% if @lesson.errors.any? %>
+  <h3>Please fix these errors:</h3>
+  <ul>
+    <% @lesson.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<form action="/sections/<%= @section.id %>/lessons" method="post">
+  <label for="lesson_number">Lesson Number</label>  
+  <input id="lesson_number" name="number" type="integer" value="<%= @lesson.number %>">
+  <label for="lesson_name">Name</label>  
+  <input id="lesson_name" name="name" type="string" value="<%= @lesson.name %>">
+  <label for="lesson_text">Text</label>  
+  <input id="lesson_text" name="text" type="text" value="<%= @lesson.text %>">
+
+  <button>Create Lesson</button>
+
+</form>
+

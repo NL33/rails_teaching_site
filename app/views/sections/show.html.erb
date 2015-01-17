@@ -1,0 +1,12 @@
+<h2>Chapter <%= @section.chapter.number %>: <%= @section.chapter.name %></h2>
+
+<h1>Section <%= @section.number %>: <%= @section.name %></h1>
+ 
+      <% if (@section.lessons != nil) %>
+         <% @section.lessons.each do |lesson| %>
+           <p> &nbsp<%= lesson.number %> &nbsp<%= lesson.name%></p>
+         <% end %>
+       <% end %>
+
+
+ <h3><a href="/sections/<%= @section.id %>/lessons/new">Add a Lesson</a></h3>

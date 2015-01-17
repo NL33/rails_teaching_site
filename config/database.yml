@@ -1,0 +1,8 @@
+development:   
+  adapter: postgresql   
+  database: rails_teaching_site_development    
+
+test:
+  adapter: postgresql   
+  database: rails_teaching_site_test
+

@@ -1,0 +1,18 @@
+<h1>Create a Section </h1>
+
+<form action="/sections/new" method="post">
+  <label for="section_number">Number</label>  
+  <input id="section_number" name="section[number]" type="integer" value="<%= @section.number %>">
+  
+  <label for="section_name">Name</label>  
+  <input id="section_name" name="section[name]" type="string" value="<%= @section.name %>">
+  
+  <label for="section_chapter_id">Chapter</label>
+  <select name="section[chapter_id]"> 
+    <% @chapters.each do |chapter| %>
+      <option value="<%= chapter.id %>"><%= chapter.name %></option>
+    <% end %>
+  </select>
+  <button>Create Section</button>
+</form>
+
