@@ -4,9 +4,15 @@
  
       <% if (@section.lessons != nil) %>
          <% @section.lessons.each do |lesson| %>
-           <p> &nbsp<%= lesson.number %> &nbsp<%= lesson.name%></p>
+          <a href="/lessons/<%= lesson.id %>/">Lesson <%= lesson.number %>:</a> &nbsp<%= lesson.name%></h4>
          <% end %>
        <% end %>
 
 
- <h3><a href="/sections/<%= @section.id %>/lessons/new">Add a Lesson</a></h3>
+ <h3><a href="/lessons/new">Add a Lesson</a></h3>
+ <h4><a href="/sections/<%= @section.id %>"
+         data-confirm="You sure? This will also delete all lessons assigned to this section."
+         data-method="delete"
+         rel="nofollow">Delete this Section</a></h4>
+
+  </br></br></br><h4><a href="/chapters">Back to Home Page</a></h4>

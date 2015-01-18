@@ -9,10 +9,14 @@
     </ul>
   <% end %>
 
-<form action="/chapters" method="post">
+<form action="/chapters/new" method="post">
   <label for="chapter_number">Number</label>  
   <input id="chapter_number" name="chapter[number]" type="integer" value="<%= @chapter.number %>">
   <label for="chapter_name">Name</label>  
   <input id="chapter_name" name="chapter[name]" type="string" value="<%= @chapter.name %>">
   <button>Create Chapter</button>
 </form>
+
+
+
+ </br></br></br><h4><a href="/chapters">Back to Home Page</a></h4>

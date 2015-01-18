@@ -1,7 +1,7 @@
 <h1>The Teaching Site!</h1>
 
 <h2> Use this site to set up an online course. Create chapters, sections within chapters, and lessons. </h2>
-
+  
 <h2> Your class: </h2>
 <ul>
 
@@ -11,17 +11,23 @@
     <% if chapter.sections != nil %>
 	  <% chapter.sections.each do |section| %>
 	     <h3>&nbsp&nbsp  <a href="/sections/<%= section.id %>">Section <%= section.number %></a> &nbsp<%= section.name%></h3>
-	      
-	      <% if (section.lessons != nil) %>
+	     
 	         <% section.lessons.each do |lesson| %>
 	           <h4> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="/lessons/<%= lesson.id %>/">Lesson <%= lesson.number %>:</a> &nbsp<%= lesson.name%></h4>
 	         <% end %>
-	       <% end %>
-	    <% end %>
-	 <% end %>
+	  <% end %>
 	<% end %>
+   <% if chapter.lessons != nil %>
+	  <% chapter.lessons.each do |lesson| %>
+	  		<% if lesson.section_id == nil %>
+		   <h4> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="/lessons/<%= lesson.id %>/">Lesson <%= lesson.number %>:</a> &nbsp<%= lesson.name%> &nbsp&nbsp(no section assigned)</h4>
+		   	  <% end %>
+	  <% end %>
+   <% end %>
+<% end %>
 </ul>
-
-<a href="/chapters/new">Create a new Chapter</a>
-<a href="/sections/new">Add a Section</a>
-<a href="/lessons/new">Add a Lesson</a>
+</br>
+<p> You can add sections and chapters by clicking on any chapter or section you have created. Alternatively, you can create anything from scratch by clicking on any of these:</p>
+<a href="/chapters/new">Create a new Chapter</a> </br>
+<a href="/sections/new">Create a new Section</a></br>
+<a href="/lessons/new">Create a new Lesson</a></br>

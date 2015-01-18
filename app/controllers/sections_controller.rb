@@ -30,23 +30,16 @@ class SectionsController < ApplicationController
   end
 
   def edit #NOT USED
-    @specie = Specie.find(params[:id])
-    render('species/edit.html.erb') 
   end
 
   def update #NOT USED
-    @specie = specie.find(params[:id])
-    if @specie.update(params[:id])
-      render('species/success.html.erb')
-    else
-      render('species/edit.html.erb')
-    end
   end
 
- def destroy #NOT USED
-    @specie = specie.find(params[:id])
-    @specie.destroy
-    render('species/destroy.html.erb')
+ def destroy 
+    @section = Section.find(params[:id])
+    @section.destroy
+    flash[:notice] = "Section deleted"
+    redirect_to("/chapters")
  end
 
 end

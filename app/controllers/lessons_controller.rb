@@ -6,19 +6,19 @@ class LessonsController < ApplicationController
   end
 
   def new 
-    @section = Section.find(params[:section_id])
-    @lesson = @section.lessons.new  
+    @lesson = Lesson.new 
+    @chapters = Chapter.all
+    @sections = Section.all
     render('lessons/new.html.erb')
   end
 
   def create
-   @lesson = Lesson.new(:number => params[:number], 
-                        :name =>  params[:name], 
-                        :text => params[:text], 
-                        :section_id => params[:section_id])
-   @section = Section.find(params[:section_id])
+    @lesson = Lesson.new(params[:lesson])
+    @chapters = Chapter.all
+    @sections = Section.all
     if @lesson.save
-      redirect_to("/chapters/#{@section.chapter_id}")
+      flash[:notice] = "Lesson added!"
+      redirect_to('/chapters')
     else
       render('lessons/new.html.erb')
     end
@@ -46,10 +46,11 @@ class LessonsController < ApplicationController
     end
   end
 
- def destroy #NOT USED
-    @specie = specie.find(params[:id])
-    @specie.destroy
-    render('species/destroy.html.erb')
+ def destroy 
+    @lesson = Lesson.find(params[:id])
+    @lesson.destroy
+     flash[:notice] = "Lesson deleted"
+    redirect_to("/chapters")
  end
 
 end

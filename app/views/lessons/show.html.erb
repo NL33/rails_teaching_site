@@ -8,10 +8,19 @@
 </br>
 </br>
 </br>
-<h3><a href="/lessons/<%= @lesson.previous_lesson_link %>/">Previous Lesson in Section</a></h3>
-<h3><a href="/lessons/<%= @lesson.next_lesson_link %>/">Next Lesson in Section</a></h3>
+<h3><a href="/lessons/<%= @lesson.id %>/edit">Edit Lesson</h3>
+
+<h4><a href="/lessons/<%= @lesson.id %>"
+         data-confirm="You sure?"
+         data-method="delete"
+         rel="nofollow">Delete this Lesson</a></h4>
+
 </br>
+</br>
+</br><h4><a href="/lessons/<%= @lesson.previous_lesson_link %>/">Previous Lesson in Section</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="/lessons/<%= @lesson.next_lesson_link %>/">Next Lesson in Section</a></h4>
+
 </br>
 
-<h3><a href="/lessons/<%= @lesson.id %>/edit">Edit Lesson</h3>
-<h3><a href="/chapters">Back to Table of Contents</a></h3>
+
+
+ </br></br></br><h4><a href="/chapters">Back to Home Page</a></h4>

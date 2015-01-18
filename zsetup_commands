@@ -32,5 +32,6 @@ create models folder in models folder in spec and add [file model_name]_spec.rb
 *Migration
 
 $ rails generate migration create_lessons
+	$ rails generate migration AddChapterIdToLesson chapter_id:integer     
 $ rails generate migration create_sections
 $ rails generate migration create_chapters

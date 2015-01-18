@@ -2,6 +2,7 @@ class Lesson < ActiveRecord::Base
 	validates :name, :presence => true
 
 	belongs_to :section
+  belongs_to :chapter #here so user can create lesson within a chapter without a section if they like.
 
 	default_scope { order(:number) } #default scope to order lessons listing.
 

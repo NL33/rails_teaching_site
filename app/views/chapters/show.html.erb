@@ -13,5 +13,15 @@
     <% end %>
  <% end %> 
 </br>
- <h3><a href="/chapters/<%= @chapter.id %>/sections/new">Add a Section</a></h3>
+ <h3><a href="/sections/new">Add a Section</a></h3>
+
+ <h3><a href="/lessons/new">Create a Lesson</a></h3>
+
+
+ <h4><a href="/chapters/<%= @chapter.id %>"
+         data-confirm="You sure? This will also delete all sections and lessons saved to this chapter."
+         data-method="delete"
+         rel="nofollow">Delete this Chapter</a></h4>
+
+ </br></br></br><h4><a href="/chapters">Back to Home Page</a></h4>
 

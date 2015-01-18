@@ -15,7 +15,7 @@ class ChaptersController < ApplicationController
   	@chapter = Chapter.new(params[:chapter])
     if @chapter.save
       flash[:notice] = "Chapter added!"
-      render('/chapters')
+      redirect_to('/chapters')
     else
       render('sections/new.html.erb')
     end
@@ -27,23 +27,16 @@ class ChaptersController < ApplicationController
   end
 
   def edit #NOT USED
-    @specie = Specie.find(params[:id])
-    render('species/edit.html.erb') 
   end
 
   def update #NOT USED
-    @specie = specie.find(params[:id])
-    if @specie.update(params[:id])
-      render('species/success.html.erb')
-    else
-      render('species/edit.html.erb')
-    end
   end
 
- def destroy #NOT USED
-    @specie = specie.find(params[:id])
-    @specie.destroy
-    render('species/destroy.html.erb')
+ def destroy 
+    @chapter = Chapter.find(params[:id])
+    @chapter.destroy
+    flash[:notice] = "Chapter deleted"
+    redirect_to("/chapters")
  end
 
 end
